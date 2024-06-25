@@ -1,0 +1,12 @@
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\bin\Debug\net8.0\eMuhasebeServer.Domain.deps.json
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\bin\Debug\net8.0\eMuhasebeServer.Domain.dll
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\bin\Debug\net8.0\eMuhasebeServer.Domain.pdb
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.csproj.AssemblyReference.cache
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.AssemblyInfoInputs.cache
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.AssemblyInfo.cs
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.csproj.CoreCompileInputs.cache
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.dll
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\refint\eMuhasebeServer.Domain.dll
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\eMuhasebeServer.Domain.pdb
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Domain\obj\Debug\net8.0\ref\eMuhasebeServer.Domain.dll
