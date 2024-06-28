@@ -1,7 +1,7 @@
 ﻿namespace eMuhasebeServer.Domain.Enums;
 
 
-public enum CheckStatus
+public enum CheckStatusEnum
 {
     Paid = 1,
     Unpaid = 2,
