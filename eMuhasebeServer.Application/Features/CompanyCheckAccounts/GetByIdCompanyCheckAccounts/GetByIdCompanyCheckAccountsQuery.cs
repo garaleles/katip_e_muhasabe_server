@@ -1,0 +1,3 @@
+﻿namespace eMuhasebeServer.Application.Features.CompanyCheckAccounts.GetByIdCompanyCheckAccounts;
+
+public record GetByIdCompanyCheckAccountsQuery();

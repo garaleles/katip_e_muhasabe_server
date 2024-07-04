@@ -1,0 +1,3 @@
+﻿namespace eMuhasebeServer.Application.Features.CompanyCheckissuePayrolls.UpdateCompanyCheckissuePayroll;
+
+public record UpdateCompanyCheckissuePayrollCommand();

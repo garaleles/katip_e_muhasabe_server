@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMuhasebeServer.Infrastructure.Context;
 
@@ -11,9 +12,11 @@ using eMuhasebeServer.Infrastructure.Context;
 namespace eMuhasebeServer.Infrastructure.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    partial class CompanyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240703133629_mg001")]
+    partial class mg001
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,6 +276,10 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CheckRegisterPayrollDetailId");
@@ -347,6 +354,10 @@ namespace eMuhasebeServer.Infrastructure.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -506,6 +517,9 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BankId");
@@ -576,9 +590,6 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BankDetailId");
@@ -596,10 +607,6 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AccountName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("AccountNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -615,15 +622,82 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("CheckNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CheckType")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("CompanyCheckissuePayrollDetailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CompanyCheckissuePayrollId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("DueDate")
+                        .HasColumnType("date");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompanyCheckissuePayrollId")
+                        .IsUnique()
+                        .HasFilter("[CompanyCheckissuePayrollId] IS NOT NULL");
+
+                    b.HasIndex("CustomerId");
+
                     b.ToTable("CompanyCheckAccounts");
+                });
+
+            modelBuilder.Entity("eMuhasebeServer.Domain.Entities.CompanyCheckissuePayroll", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("AverageMaturityDate")
+                        .HasColumnType("date");
+
+                    b.Property<int>("CheckCount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("CompanyCheckAccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("PayrollAmount")
+                        .HasColumnType("money");
+
+                    b.Property<string>("PayrollNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyCheckAccountId")
+                        .IsUnique()
+                        .HasFilter("[CompanyCheckAccountId] IS NOT NULL");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("CompanyCheckissuePayrolls");
                 });
 
             modelBuilder.Entity("eMuhasebeServer.Domain.Entities.Customer", b =>
@@ -696,6 +770,9 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("CollectionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CompanyCheckissuePayrollId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CustomerId")
@@ -1062,7 +1139,7 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                         .HasForeignKey("CheckRegisterPayrollDetailId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("eMuhasebeServer.Domain.Entities.ChequeissuePayrollDetail", null)
+                    b.HasOne("eMuhasebeServer.Domain.Entities.ChequeissuePayrollDetail", "ChequeissuePayrollDetail")
                         .WithMany("Checks")
                         .HasForeignKey("ChequeissuePayrollDetailId");
 
@@ -1074,6 +1151,8 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                     b.Navigation("CheckRegisterPayrollDetail");
 
                     b.Navigation("ChequeissuePayroll");
+
+                    b.Navigation("ChequeissuePayrollDetail");
                 });
 
             modelBuilder.Entity("eMuhasebeServer.Domain.Entities.CheckDetail", b =>
@@ -1177,6 +1256,36 @@ namespace eMuhasebeServer.Infrastructure.Migrations
                     b.Navigation("BankDetail");
 
                     b.Navigation("CashRegisterDetail");
+                });
+
+            modelBuilder.Entity("eMuhasebeServer.Domain.Entities.CompanyCheckAccount", b =>
+                {
+                    b.HasOne("eMuhasebeServer.Domain.Entities.CompanyCheckissuePayroll", "CompanyCheckissuePayroll")
+                        .WithOne()
+                        .HasForeignKey("eMuhasebeServer.Domain.Entities.CompanyCheckAccount", "CompanyCheckissuePayrollId");
+
+                    b.HasOne("eMuhasebeServer.Domain.Entities.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+
+                    b.Navigation("CompanyCheckissuePayroll");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("eMuhasebeServer.Domain.Entities.CompanyCheckissuePayroll", b =>
+                {
+                    b.HasOne("eMuhasebeServer.Domain.Entities.CompanyCheckAccount", "CompanyCheckAccount")
+                        .WithOne()
+                        .HasForeignKey("eMuhasebeServer.Domain.Entities.CompanyCheckissuePayroll", "CompanyCheckAccountId");
+
+                    b.HasOne("eMuhasebeServer.Domain.Entities.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+
+                    b.Navigation("CompanyCheckAccount");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("eMuhasebeServer.Domain.Entities.CustomerDetail", b =>

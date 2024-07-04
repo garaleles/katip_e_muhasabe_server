@@ -1,6 +1,6 @@
 ﻿namespace eMuhasebeServer.Domain.Entities;
 
-public class ChequeissuePayrollDetail
+public class CompanyCheckissuePayroll
 {
     
 }

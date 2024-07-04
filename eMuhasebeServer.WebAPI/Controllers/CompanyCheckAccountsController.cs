@@ -1,4 +1,5 @@
 ﻿using eMuhasebeServer.Application.Features.CompanyCheckAccounts.GetAllCompanyCheckAccounts;
+using eMuhasebeServer.Application.Features.CompanyCheckAccounts.GetByIdCompanyCheckAccounts;
 using eMuhasebeServer.WebAPI.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,13 @@ public class CompanyCheckAccountsController: ApiController
     
     [HttpPost]
     public async Task<IActionResult> GetAll(GetAllCompanyCheckAccountsQuery request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(request, cancellationToken);
+        return StatusCode(response.StatusCode, response);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> GetById(GetByIdCompanyCheckAccountsQuery request, CancellationToken cancellationToken)
     {
         var response = await _mediator.Send(request, cancellationToken);
         return StatusCode(response.StatusCode, response);
