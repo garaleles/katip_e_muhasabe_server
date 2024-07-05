@@ -5,6 +5,7 @@ using eMuhasebeServer.Application.Features.DashBoardsCustomers.DashboardCompanyC
 using eMuhasebeServer.Application.Features.DashBoardsCustomers.DashboardCustomersWithDrawalAll;
 using eMuhasebeServer.Application.Features.DashBoardsCustomers.DashboardSafes;
 using eMuhasebeServer.Application.Features.DashBoardsCustomers.DashBoardsCustomersAll;
+using eMuhasebeServer.Application.Features.DashBoardsCustomers.DashboardSummary;
 using eMuhasebeServer.Application.Features.DashBoardsCustomers.TotalProducts;
 using eMuhasebeServer.WebAPI.Abstractions;
 using MediatR;
@@ -66,4 +67,17 @@ public sealed class DashBoardsCustomersController: ApiController
         return StatusCode(response.StatusCode, response);
     }
     
+    [HttpPost]
+    public async Task<IActionResult> GetAllSummaryProduct(DashboardSummaryProductQuery request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(request, cancellationToken);
+        return StatusCode(response.StatusCode, response);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> GetAllSummaryCustomer(DashboardSummaryCustomerQuery request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(request, cancellationToken);
+        return StatusCode(response.StatusCode, response);
+    }
 }
