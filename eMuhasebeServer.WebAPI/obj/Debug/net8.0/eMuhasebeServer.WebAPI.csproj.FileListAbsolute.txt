@@ -164,3 +164,5 @@ C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.Web
 C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.WebAPI\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.WebAPI\obj\Debug\net8.0\eMuhasebeServer.WebAPI.sourcelink.json
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.WebAPI\bin\Debug\net8.0\package-lock.json
+C:\Users\seley\OneDrive\Masaüstü\eMuhasebe\eMuhasebeServer\eMuhasebeServer.WebAPI\bin\Debug\net8.0\package.json
